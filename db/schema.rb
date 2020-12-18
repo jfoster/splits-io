@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_203633) do
+ActiveRecord::Schema.define(version: 2020_08_09_154103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -170,6 +170,8 @@ ActiveRecord::Schema.define(version: 2020_02_07_203633) do
     t.datetime "created_at", null: false
     t.datetime "revoked_at"
     t.string "scopes"
+    t.string "code_challenge"
+    t.string "code_challenge_method"
     t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
@@ -516,6 +518,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_203633) do
     t.string "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "start_offset_ms", default: 10000, null: false
     t.index ["run_id"], name: "index_videos_on_run_id"
   end
 

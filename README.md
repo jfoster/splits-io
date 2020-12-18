@@ -53,22 +53,32 @@ dependencies. The one downside is that you must first install Docker!
 [docker-compose-download]: https://docs.docker.com/compose/install/
 
 ### First Run
-The first time you run Splits.io with Docker is the best, because you'll have time to get a coffee! Yum! After the
-first run, it will be much quicker. While you wait, you can also take a look at our [short Codeflow tutorial][codeflow]
-to get up to speed with a few key pieces of the code.
+The first time you run Splits.io with Docker is the best, because you'll have
+time to get a coffee! Yum! After the first run, it will be much quicker.
 ```sh
 make
 ```
+While you wait, you can also take a look at our [short Codeflow
+tutorial][codeflow] to get up to speed with a few key pieces of the code.
+
 Once the output looks settled (you should see `* Listening on tcp://0.0.0.0:3000`), you're good to go! Access
 [localhost:3000][localhost] in your browser. The first page load after a new build may also take a minute.
+
+Now that Splits.io is running, one last step you should perform in another terminal window is
+```sh
+make seed
+```
+This will make sure your local JavaScript can talk to your local backend, as
+well as create some initial games in the database.
 
 [localhost]: http://localhost:3000/
 [codeflow]: https://usecodeflow.com/tutorials/view/glacials/splits-io/tree/a89ff1/ck68vlj2g00060vmmcnlstz53
 
-#### Optional Features
-Some features are built on top of links with other platforms, like Twitch sign-in. If you want these features to work,
-you need to register developer applications with the appropriate services. See `.envrc.example` for details on which
-features require which platforms.
+#### Further Setup
+Some features are built on top of links with other platforms, like Twitch
+sign-in. If you want these features to work, you need to register developer
+applications with the appropriate services. See `.envrc.example` for details on
+which features require which platforms.
 
 After changing or creating `.envrc`, run
 ```sh
@@ -126,7 +136,7 @@ Splits.io utilizes a few libraries for profiling our code.
 
 [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler) is used to find major slowdowns in the code
 through the use of the badge in the top left corner of the browser window. There is also a slew of different URL
-paremeters that you can use to get more detailed information about various aspects of the request. Details of these are
+parameters that you can use to get more detailed information about various aspects of the request. Details of these are
 explained in the readme for RMP.
 To get more detailed information about how code will perform in a production like environment, run
 ```sh
@@ -213,7 +223,7 @@ Config for this generation is at [`config/favicon.json`][favicon-config].
 
 ### Theme
 Splits.io runs vanilla [Bootstrap 4][bootstrap]. Historically we used one of a few themes to give it some additional
-distinction and a professionally tailored dark mode, but we decided to switch to vanilla with out own dark mode after
+distinction and a professionally tailored dark mode, but we decided to switch to vanilla with our own dark mode after
 several bad experiences with those themes slowly falling more and more out of date from mainline Bootstrap.
 
 [bootstrap]: https://getbootstrap.com/
